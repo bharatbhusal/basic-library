@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        System.out.println("Welcome to Bhusal Central Library!!!\nPlease Sign up or Login first.");
+        System.out.println("Welcome to Bhusal Central Library!!!");
         Scanner sc = null;
+
         sc = new Scanner(System.in);
         System.out.print("Name: ");
         String member_name = sc.nextLine();
@@ -12,6 +13,7 @@ public class Main {
         // sc.close();
         Member user = new Member(member_id, member_name);
         boolean entry = true;
+
         while (entry) {
             String[] guide = { "Book Operations: ",
                     "List all Books",
@@ -25,13 +27,15 @@ public class Main {
             for (int i = 1; i < guide.length; i++) {
                 System.out.println(i + ". " + guide[i]);
             }
+
             sc = new Scanner(System.in);
-            System.out.print("Enter the number of your preferred action: ");
+            System.out.print("Enter the correspoding number of your preferred action: ");
             int choice = sc.nextInt();
             // sc.close();
             System.out.println();
             String book_id = "";
             Book book = null;
+
             switch (choice) {
                 case 1:
                     // System.out.println("Do somethings");

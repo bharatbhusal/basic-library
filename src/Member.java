@@ -44,8 +44,8 @@ public class Member {
 
             System.out.println("Book request Successful: " + book.name + "(" + book.id + ")");
         } catch (BookNotFoundException bne) {
-            System.out.println("Book request failed.");
-            System.out.println("Error: " + bne.getMessage());
+            // System.out.println("Book request failed.");
+            // System.out.println("Error: " + bne.getMessage());
         }
     }
 
@@ -64,7 +64,7 @@ public class Member {
         } catch (IOException e) {
             System.out.println("IOExpection error: " + e);
         } catch (BookNotFoundException bne) {
-            System.out.println(bne.getMessage());
+            System.out.println("Error: " + bne.getMessage());
         }
         return new Book("-1", "-1", "-1", "-1");
     }
@@ -80,9 +80,7 @@ public class Member {
             System.out.println("Error: " + e.getMessage());
         } catch (NullPointerException npe) {
             System.out.println("You don't have that book to return.");
-
         }
-
     }
 
     void listAllBooks() throws IOException {
