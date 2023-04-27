@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import exceptions.BookNotFoundException;
+
 public class Member {
     String name, id;
     ArrayList<Book> requested_books;
@@ -20,7 +22,7 @@ public class Member {
                 throw new BookNotFoundException("This book is not available in the database");
             requested_books.add(book);
 
-            String filepath = "books.csv";
+            String filepath = "src/files/books.csv";
             FileReader reader = new FileReader(filepath);
             // reader.read
             BufferedReader b_reader = new BufferedReader(reader);
@@ -48,7 +50,7 @@ public class Member {
     }
 
     Book searchBook(String id) throws IOException, BookNotFoundException {
-        String filepath = "books.csv";
+        String filepath = "src/files/books.csv";
         FileReader reader = new FileReader(filepath);
         BufferedReader b_reader = new BufferedReader(reader);
         String line;
@@ -68,7 +70,7 @@ public class Member {
     }
 
     void returnBook(Book book) throws IOException, NullPointerException {
-        String filepath = "books.csv";
+        String filepath = "src/files/books.csv";
         try (FileWriter writer = new FileWriter(filepath, true);) {
             String content = book.id + "," + book.name + "," + book.genre + "," + book.author + "\n";
             writer.write(content);
@@ -84,7 +86,7 @@ public class Member {
     }
 
     void listAllBooks() throws IOException {
-        String filepath = "books.csv";
+        String filepath = "src/files/books.csv";
         FileReader reader = new FileReader(filepath);
         BufferedReader b_reader = new BufferedReader(reader);
         String line;
